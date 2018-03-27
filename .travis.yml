@@ -9,9 +9,6 @@ env:
   - distro: centos6
     playbook: test.yml
     GIFLOSSY_VERSION: 1.91
-  - distro: ubuntu1804
-    playbook: test.yml
-    GIFLOSSY_VERSION: 1.91
   - distro: ubuntu1604
     playbook: test.yml
     GIFLOSSY_VERSION: 1.91
