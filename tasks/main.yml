@@ -3,14 +3,28 @@
   yum: name={{ item }} state=present
   when: ansible_os_family == 'RedHat'
   with_items:
-    - "@Development tools"
+    - gettext-devel
+    - expat-devel
+    - curl-devel
+    - zlib-devel
+    - perl-devel
+    - openssl-devel
+    - subversion-perl
+    - make
+    - gcc
     - automake
 
 - name: install packages for building gifsicle
   apt: name={{ item }} state=present
   when: ansible_os_family == 'Debian'
   with_items:
+    - libcurl4-gnutls-dev
+    - libexpat1-dev
+    - gettext
+    - libssl-dev
+    - zlib1g-dev
     - build-essential
+    - gcc
     - autoconf
 
 - name: download giflossy source
