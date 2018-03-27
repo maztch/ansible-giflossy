@@ -1,5 +1,8 @@
 # Ansible Role: Giflossy
 
+[![Build Status](https://travis-ci.org/maztch/ansible-role-giflossy.svg?branch=master)](https://travis-ci.org/maztch/ansible-role-giflossy)
+
+
 Installs Giflossy from source, the fork of Gifsicle, on RedHat/CentOS and Debian/Ubuntu servers.
 
 ## Role Variables
