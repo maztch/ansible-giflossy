@@ -12,8 +12,7 @@
   upgrade: yes
   when: ansible_os_family == 'Debian'
   with_items:
-    - gcc
-    - make
+    - build-essential
     - autoconf
 
 - name: download giflossy source
