@@ -3,7 +3,7 @@
   yum: name={{ item }} state=present
   when: ansible_os_family == 'RedHat'
   with_items:
-    - autoconf
+    - automake
 
 - name: install packages for building gifsicle
   apt: name={{ item }} state=present
