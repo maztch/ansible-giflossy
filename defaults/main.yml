@@ -1,0 +1,9 @@
+---
+
+#giflossy version
+giflossy_version: '1.91'
+
+#./configure options for giflossy
+giflossy_options:
+  - --disable-gifview
+  - --disable-gifdiff
