@@ -29,6 +29,7 @@ script:
   # Configure test script so we can run extra tests after playbook is run.
   - export container_id=$(date +%s)
   - export cleanup=false
+  - export test_idempotence=false
 
   # Download test shim.
   - wget -O ${PWD}/tests/test.sh https://gist.githubusercontent.com/geerlingguy/73ef1e5ee45d8694570f334be385e181/raw/
@@ -39,10 +40,10 @@ script:
 
   # Ensure gifsicle is installed and at the right version.
   - 'docker exec --tty ${container_id} env TERM=xterm which gifsicle'
-  #- 'docker exec --tty ${container_id} env TERM=xterm test -x /usr/local/bin/gifsicle'
+  - 'docker exec --tty ${container_id} env TERM=xterm test -x /usr/local/bin/gifsicle'
 
   - 'docker exec --tty ${container_id} env TERM=xterm gifsicle --version'
-  #- 'docker exec --tty ${container_id} env TERM=xterm /usr/local/bin/gifsicle --version | grep -qF "$GIFLOSSY_VERSION"'
+  - 'docker exec --tty ${container_id} env TERM=xterm /usr/local/bin/gifsicle --version | grep -qF "$GIFLOSSY_VERSION"'
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
