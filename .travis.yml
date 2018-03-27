@@ -2,17 +2,6 @@
 services: docker
 
 env:
-  # Test source install on latest supported OSes.
-  - distro: centos7
-    playbook: test-source.yml
-    GIFLOSSY_VERSION: 2.16.2
-  - distro: fedora27
-    playbook: test-source.yml
-    GIFLOSSY_VERSION: 2.16.2
-  - distro: ubuntu1804
-    playbook: test-source.yml
-    GIFLOSSY_VERSION: 2.16.2
-
   # Test package install on all supported OSes.
   - distro: centos7
     playbook: test.yml
@@ -50,10 +39,10 @@ script:
 
   # Ensure gifsicle is installed and at the right version.
   - 'docker exec --tty ${container_id} env TERM=xterm which gifsicle'
-  #- 'docker exec --tty ${container_id} env TERM=xterm test -x /usr/bin/gifsicle'
+  #- 'docker exec --tty ${container_id} env TERM=xterm test -x /usr/local/bin/gifsicle'
 
   - 'docker exec --tty ${container_id} env TERM=xterm gifsicle --version'
-  #- 'docker exec --tty ${container_id} env TERM=xterm /usr/bin/gifsicle --version | grep -qF "$GIFLOSSY_VERSION"'
+  #- 'docker exec --tty ${container_id} env TERM=xterm /usr/local/bin/gifsicle --version | grep -qF "$GIFLOSSY_VERSION"'
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
